@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Articles
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>All Articles</h1>
+        <div class="album py-5 ">
+    <div class="container">
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            {% for el in articles %}
+            <div class="col">
+              <div class="card shadow-sm">
+                <svg class="bd-placeholder-img card-img-top" width="100%" height="125" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>{{ el.intro }}</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="45%" y="50%" fill="#eceeef" dy=".3em">{{ el.title }}</text></svg>
+                <div class="card-body">
+                  <p class="card-text">{{ el.intro }}</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <a href="/about/{{el.id}}" class="btn btn-sm btn-outline-secondary">Details</a>
+
+                    </div>
+                    <small class="text-muted">{{ el.date.date() }}</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+      </div>
+    </div>
+  </div>
+    </div>
+{% endblock %}
